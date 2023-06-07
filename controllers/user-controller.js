@@ -1,5 +1,7 @@
 const { add } = require("../models/Reaction.js");
-const { User, Thought } = require("../models/User.js");
+const  User = require("../models/User.js");
+const  Thought = require("../models/Thought.js"); 
+
 
 const userController = {
   // Get all users
