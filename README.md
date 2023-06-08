@@ -2,12 +2,12 @@
 
 ## Table of Contents:
 1. [Description](#description)
-2. [Technology](#technmology)
+2. [Technology](#technology)
 3. [Acceptance Criteria](#acceptance-criteria)
 4. [Mock Up](#mock-up)
 4. [Walkthrough Videos](#walkthrough-videos)
 5. [Installation](#installation)
-6. [Tests](#test)
+6. [Tests](#tests)
 7. [Contribution](#contribution)
 8. [Questions](#questions)
 
@@ -26,8 +26,10 @@ Project is created with:
 - MongoDB
 - Mongoose
 
+
+## Acceptance Criteria:
+
 ```
-Acceptance Criteria:
 GIVEN a social network API
 WHEN I enter the command to invoke the application
 THEN my server is started and the Mongoose models are synced to the MongoDB database
@@ -39,8 +41,10 @@ WHEN I test API POST and DELETE routes in Insomnia
 THEN I am able to successfully create and delete reactions to thoughts and add and remove friends to a user’s friend list
 ```
 
+
+## Mock-Up
+
 ```
-Mock-Up
 The following animations show examples of the application's API routes being tested in Insomnia.
 ```
 ![insomnia](./images/18-nosql-homework-demo-01%20(1).gif)
@@ -75,3 +79,9 @@ After installing npm packages, the application will be invoked by using the foll
 ```
 nodemon server
 ```
+## Contribution
+- Course curriculum
+- Tutors
+- UDEMY course
+
+## Questions
