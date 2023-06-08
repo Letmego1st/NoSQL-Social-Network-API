@@ -7,7 +7,7 @@
 4. [Mock Up](#mock-up)
 4. [Walkthrough Videos](#walkthrough-videos)
 5. [Installation](#installation)
-6. [Tests](#tests)
+6. [Usage](#usage)
 7. [Contribution](#contribution)
 8. [Questions](#questions)
 
@@ -42,7 +42,7 @@ THEN I am able to successfully create and delete reactions to thoughts and add a
 ```
 
 
-### Mock-Up
+### Mock-Up:
 
 ```
 The following animations show examples of the application's API routes being tested in Insomnia.
@@ -57,13 +57,14 @@ The following animation shows GET routes to return a single user and a single th
 
 ### Walkthrough Videos:
 
-User Routes
+- [User](./images/User%20Routes.mp4)
 
-Friend Routes
+- [Friend]()
 
-Thought Routes
+- [Thought]()
 
-Reaction Routes
+- [Reaction]()
+
 
 ### Installation:
 
@@ -73,18 +74,18 @@ This repo is not to be deployed. To run this project, install it locally using n
 npm install
 ```
 
-### Tests:
+### Usage:
 
 After installing npm packages, the application will be invoked by using the following command:
 ```
 nodemon server
 ```
-### Contribution
-- Course curriculum
+### Contribution:
+- Course Curriculum
 - Tutors
-- UDEMY course
+- Udemy Course
 
-### Questions
+### Questions:
 
 - [Email](mailto:imcodong4real@gmail.com)
 - [Github](https://github.com/Letmego1st)
