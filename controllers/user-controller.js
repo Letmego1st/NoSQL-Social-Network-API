@@ -6,6 +6,7 @@ const  Thought = require("../models/Thought.js");
 const userController = {
   // Get all users
   getAllUser(req, res) {
+    console.log("getAllUser");
     User.find({})
       .populate({
         path: "friends",
@@ -87,21 +88,38 @@ const userController = {
       .catch((err) => res.status(400).json(err));
   },
 
-  addFriend(req, res) {
+  // /api/users/:userid/fiends/:friendId
+  addFriend({ params }, res) {
     User.findOneAndUpdate(
-      { _id: req.params.userId },
-      { $push: { friends: req.params.friendId } },
+      { _id: params.userId },
+      { $push: { friends: params.friendId } },
       { new: true }
     )
       .then((dbUserData) => {
         if (!dbUserData) {
-          res.status(404).json({ message: "No user found with this id!" });
+          res.status(404).json({ message: 'No user found with this id' });
           return;
         }
         res.json(dbUserData);
       })
       .catch((err) => res.status(400).json(err));
   },
+
+  //addFriend(req, res) {
+    //User.findOneAndUpdate(
+      //{ _id: req.params.userId },
+      //{ $addToSet: { friends: req.params.friendId } },
+      //{ new: true }
+    //)
+      //.then((dbUserData) => {
+        //if (!dbUserData) {
+          //res.status(404).json({ message: "No user found with this id!" });
+          //return;
+        //}
+        //res.json(dbUserData);
+      //})
+      //.catch((err) => res.status(400).json(err));
+  //},
 
   removeFriend(req, res) {
     User.findOneAndUpdate(

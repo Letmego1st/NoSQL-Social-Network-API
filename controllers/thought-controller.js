@@ -66,38 +66,68 @@ const thoughtController = {
     },
   
     // Update a thought
-    updateThought(req, res) {
-      Thought.findOneAndUpdate(
-        { _id: req.params.id },
-        { $set: req.body },
-        { runValidators: true, new: true }
-      )
-        .then((dbThoughtData) => {
+    updateThought({ params, body }, res) {
+      Thought.findOneAndUpdate({ _id: params.id }, body, { new: true, runValidators: true })
+        .then(dbThoughtData => {
           if (!dbThoughtData) {
-            res.status(404).json({ message: "No user found with this id!" });
+            res.status(404).json({ message: 'No thoughts found with that id!' });
             return;
           }
-          res.json(dbUserData);
+          res.json(dbThoughtData);
         })
-        .catch((err) => res.status(400).json(err));
+        .catch(err => res.json(err));
     },
+   
+    // Update a thought
+    //updateThought(req, res) {
+      //Thought.findOneAndUpdate(
+        //{ _id: req.params.id },
+        //{ $set: req.body },
+        //{ runValidators: true, new: true }
+      //)
+        //.then((dbThoughtData) => {
+          //if (!dbThoughtData) {
+            //res.status(404).json({ message: "No user found with this id!" });
+            //return;
+          //}
+          //res.json(dbUserData);
+        //})
+        //.catch((err) => res.status(400).json(err));
+   // },
+
+   addReaction({params, body}, res) {
+    Thought.findOneAndUpdate(
+      {_id: params.thoughtId}, 
+      {$push: {reactions: body}}, 
+      {new: true, runValidators: true})
+    .populate({path: 'reactions', select: '-__v'})
+    .select('-__v')
+    .then(dbThoughtData => {
+        if (!dbThoughtData) {
+            res.status(404).json({message: 'No thoughts with this ID.'});
+            return;
+        }
+        res.json(dbThoughtData);
+    })
+    .catch(err => res.status(400).json(err))
+},
 
     // Add a reaction to a thought
-    addReaction(req, res) {
-      Thought.findOneAndUpdate(
-        { _id: req.params.id },
-        { $addToSet: { reactions: req.body } },
-        { runValidators: true, new: true }
-      )
-        .then((dbThoughtData) => {
-          if (!dbThoughtData) {
-            res.status(404).json({ message: "No user found with this id!" });
-            return;
-          }
-          res.json(dbUserData);
-        })
-        .catch((err) => res.status(400).json(err));
-    },
+    //addReaction(req, res) {
+      //Thought.findOneAndUpdate(
+        //{ _id: req.params.id },
+        //{ $addToSet: { reactions: req.body } },
+        //{ runValidators: true, new: true }
+      //)
+        //.then((dbThoughtData) => {
+          //if (!dbThoughtData) {
+            //res.status(404).json({ message: "No user found with this id!" });
+            //return;
+          //}
+          //res.json(dbUserData);
+        //})
+        //.catch((err) => res.status(400).json(err));
+    //},
 
     // Remove a reaction from a thought
     removeReaction(req, res) {

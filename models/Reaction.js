@@ -2,7 +2,7 @@ const { Schema, model } = require("mongoose");
 //const dateFormat = require("../utils/dateFormat");  
 
 
-// Schema to create a thought model
+// Schema to create a reaction model
 const reactionSchema = new Schema(
   {
     reactionId: {   
@@ -21,6 +21,7 @@ const reactionSchema = new Schema(
       type: Date,
       default: Date.now(),
       //get: (createdAtVal) => dateFormat(createdAtVal),
+      //getter:true,
     },
 
     username: {
@@ -33,10 +34,13 @@ const reactionSchema = new Schema(
   {
     toJSON: {
       virtuals: true,
+      
     },
     id: false,
   }
 );
+
+const Reaction = model("Reaction", reactionSchema);
 
 
 module.exports = reactionSchema;
