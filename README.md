@@ -1,6 +1,6 @@
 # NoSQL-Social-Network-API
 
-## Table of Contents:
+### Table of Contents:
 1. [Description](#description)
 2. [Technology](#technology)
 3. [Acceptance Criteria](#acceptance-criteria)
@@ -11,12 +11,12 @@
 7. [Contribution](#contribution)
 8. [Questions](#questions)
 
-## Description:
+### Description:
 
 My task was to develop an API for a web-based social network application that enables users to share their thoughts, respond to their friends' thoughts, and manage their friend list. To accomplish this, I utilized Express.js for handling routing, MongoDB as the underlying database, and the Mongoose ODM for seamless interaction with the database.
 
 
-## Technology:
+### Technology:
 
 Project is created with:
 
@@ -27,7 +27,7 @@ Project is created with:
 - Mongoose
 
 
-## Acceptance Criteria:
+### Acceptance Criteria:
 
 ```
 GIVEN a social network API
@@ -42,7 +42,7 @@ THEN I am able to successfully create and delete reactions to thoughts and add a
 ```
 
 
-## Mock-Up
+### Mock-Up
 
 ```
 The following animations show examples of the application's API routes being tested in Insomnia.
@@ -55,7 +55,7 @@ The following animation shows GET routes to return a single user and a single th
 
 ![insomnia](./images/18-nosql-homework-demo-02.gif)
 
-## Walkthrough Videos:
+### Walkthrough Videos:
 
 User Routes
 
@@ -65,7 +65,7 @@ Thought Routes
 
 Reaction Routes
 
-## Installation:
+### Installation:
 
 This repo is not to be deployed. To run this project, install it locally using npm:
 
@@ -73,15 +73,18 @@ This repo is not to be deployed. To run this project, install it locally using n
 npm install
 ```
 
-## Tests:
+### Tests:
 
 After installing npm packages, the application will be invoked by using the following command:
 ```
 nodemon server
 ```
-## Contribution
+### Contribution
 - Course curriculum
 - Tutors
 - UDEMY course
 
-## Questions
+### Questions
+
+- [Email](mailto:imcodong4real@gmail.com)
+- [Github](https://github.com/Letmego1st)
