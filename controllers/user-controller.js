@@ -1,7 +1,6 @@
 const { add } = require("../models/Reaction.js");
-const  User = require("../models/User.js");
-const  Thought = require("../models/Thought.js"); 
-
+const User = require("../models/User.js");
+const Thought = require("../models/Thought.js");
 
 const userController = {
   // Get all users
@@ -25,14 +24,9 @@ const userController = {
   // Get a single user by ID
   getUserById({ params }, res) {
     User.findOne({ _id: params.id })
-      .populate({
-        path: "thoughts",
-        select: "-__v",
-      })
-      .populate({
-        path: "friends",
-        select: "-__v",
-      })
+      .select("-__v")
+      .populate("thoughts")
+      .populate("friends")
       .then((dbUserData) => {
         if (!dbUserData) {
           res.status(404).json({ message: "No user found with this id!" });
@@ -90,14 +84,16 @@ const userController = {
 
   // /api/users/:userid/fiends/:friendId
   addFriend({ params }, res) {
+    console.log("params", params);
     User.findOneAndUpdate(
       { _id: params.userId },
-      { $push: { friends: params.friendId } },
+      { $addToSet: { friends: params.friendsId } },
       { new: true }
     )
       .then((dbUserData) => {
+        console.log("dbUserData", dbUserData);
         if (!dbUserData) {
-          res.status(404).json({ message: 'No user found with this id' });
+          res.status(404).json({ message: "No user found with this id" });
           return;
         }
         res.json(dbUserData);
@@ -106,19 +102,19 @@ const userController = {
   },
 
   //addFriend(req, res) {
-    //User.findOneAndUpdate(
-      //{ _id: req.params.userId },
-      //{ $addToSet: { friends: req.params.friendId } },
-      //{ new: true }
-    //)
-      //.then((dbUserData) => {
-        //if (!dbUserData) {
-          //res.status(404).json({ message: "No user found with this id!" });
-          //return;
-        //}
-        //res.json(dbUserData);
-      //})
-      //.catch((err) => res.status(400).json(err));
+  //User.findOneAndUpdate(
+  //{ _id: req.params.userId },
+  //{ $addToSet: { friends: req.params.friendId } },
+  //{ new: true }
+  //)
+  //.then((dbUserData) => {
+  //if (!dbUserData) {
+  //res.status(404).json({ message: "No user found with this id!" });
+  //return;
+  //}
+  //res.json(dbUserData);
+  //})
+  //.catch((err) => res.status(400).json(err));
   //},
 
   removeFriend(req, res) {

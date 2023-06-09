@@ -55,15 +55,10 @@ The following animation shows GET routes to return a single user and a single th
 
 ![insomnia](./images/18-nosql-homework-demo-02.gif)
 
-### Walkthrough Videos:
+### Walkthrough Video:
 
-- [User](./images/User%20Routes.mp4)
+- [User, Friend, Thought, Reaction](./images/Untitled_%20Jun%209%2C%202023%209_00%20AM.mp4)
 
-- [Friend]()
-
-- [Thought]()
-
-- [Reaction]()
 
 
 ### Installation:
@@ -88,4 +83,4 @@ nodemon server
 ### Questions:
 
 - [Email](mailto:imcodong4real@gmail.com)
-- [Github](https://github.com/Letmego1st)
+- [Github Account](https://github.com/Letmego1st)
